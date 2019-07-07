@@ -1,19 +1,14 @@
 version: "3.7"
 
-volumes:
-  media: {}
-  config: {}
-  transcode: {}
-
 services:
   plex:
     build:
       context: .
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - media:/data
-      - config:/config
-      - transcode:/transcode
+      - ./dev/media:/data
+      - ./dev/config:/config
+      - ./dev/transcode:/transcode
     ports:
       - 32400:32400
       - 33400:33400
